@@ -1,0 +1,77 @@
+@font-face {
+  font-family: '';
+  src: url();
+  font-display: swap;
+}
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--font);
+}
+a:visited {
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  color: var(--font);
+}
+svg {
+  color: var(--font);
+}
+/* ======================================= */
+/* ROOT & BODY ========================== */
+/* ===================================== */
+:root {
+  --space-base: 4px;
+
+  --font:
+}
+body {
+  -webkit-tap-highlight-color: transparent;
+  text-wrap: pretty;
+  font-family:
+    system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji';
+}
+/* ======================================= */
+/* DARK-MODE============================= */
+/* ===================================== */
+[data-theme='dark'] {
+  --bg: ;
+  --bg-light: ;
+}
+/* ======================================= */
+/* HOVER ================================ */
+/* ===================================== */
+@media (hover: hover) {
+}
+/* ======================================= */
+/* RESPONSIVE-MEDIA-QUERIES ============= */
+/* ===================================== */
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 360px) {
+}
+
+@media (min-width: 1920px) {
+}
+/* ====================================== */
+/* ANIMATIONS ========================== */
+/* ==================================== */
+
+@keyframes menu-slide-in {
+}
+
+@keyframes menu-slide-out {
+}
