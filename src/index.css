@@ -32,7 +32,7 @@ svg {
 :root {
   --space-base: 4px;
 
-  --font:   
+  --font:    
 ;
 }
 #root {
@@ -50,21 +50,29 @@ svg {
   padding-inline: calc(var(--space-base) * 4);
   border: 1px solid transparent;
 }
-header{
+header {
   display: flex;
   min-width: 100%;
   align-items: center;
   justify-content: space-between;
   justify-self: flex-start;
 }
-.scores-container{
+.scores-container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: calc(var(--space-base) * 4);
 }
-.signature{
+.signature {
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--space-base) * 1);
+  opacity: 0.5;
+  & svg {
+    width: calc(var(--space-base) * 4);
+    height: auto;
+  }
 }
 /* ======================================= */
 /* HOVER ================================ */
