@@ -31,21 +31,20 @@ svg {
 :root {
   --space-base: 4px;
 
-  --font:
+  --font:  
+;
 }
-body {
+#root {
   -webkit-tap-highlight-color: transparent;
   text-wrap: pretty;
   font-family:
     system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji';
-}
-/* ======================================= */
-/* DARK-MODE============================= */
-/* ===================================== */
-[data-theme='dark'] {
-  --bg: ;
-  --bg-light: ;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 /* ======================================= */
 /* HOVER ================================ */
