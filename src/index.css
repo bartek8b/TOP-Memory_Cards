@@ -5,6 +5,7 @@
 }
 html {
   scroll-behavior: smooth;
+  background-color: gray;
 }
 * {
   margin: 0;
@@ -31,7 +32,7 @@ svg {
 :root {
   --space-base: 4px;
 
-  --font:  
+  --font:   
 ;
 }
 #root {
@@ -40,11 +41,30 @@ svg {
   font-family:
     system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji';
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  min-height: 100vh;
+  background-color: gray;
+  padding-inline: calc(var(--space-base) * 4);
+  border: 1px solid transparent;
+}
+header{
+  display: flex;
+  min-width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  justify-self: flex-start;
+}
+.scores-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--space-base) * 4);
+}
+.signature{
+  font-size: 0.9rem;
 }
 /* ======================================= */
 /* HOVER ================================ */
