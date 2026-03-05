@@ -1,15 +1,29 @@
 @font-face {
-  font-family: '';
-  src: url();
+  font-family: 'averia';
+  src: url(assets/AveriaSerifLibre-Regular.woff2);
+  font-display: swap;
+}
+@font-face {
+  font-family: 'pixel';
+  src: url(assets/PixelFJ8pt1Normal.woff2);
   font-display: swap;
 }
 html {
   scroll-behavior: smooth;
-  background-color: gray;
+  background-color: var(--dark);
 }
 * {
   margin: 0;
   padding: 0;
+}
+h1::selection,
+p::selection,
+a::selection {
+  background-color: var(--dark);
+  color: var(--light);
+}
+*::selection {
+  background-color: transparent;
 }
 a {
   text-decoration: none;
@@ -25,6 +39,7 @@ button {
 }
 svg {
   color: var(--font);
+  fill: var(--font);
 }
 /* ======================================= */
 /* ROOT & BODY & HEADER / FOOTER ======== */
@@ -32,15 +47,16 @@ svg {
 :root {
   --space-base: 4px;
 
-  --font:             
-;
+  --light: rgb(0, 107, 32);
+  --dark: rgb(12, 68, 57);
+  --font: hsl(0, 0%, 80%);
 }
 #root {
   -webkit-tap-highlight-color: transparent;
   text-wrap: pretty;
   font-family:
-    system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji';
+    'averia', system-ui, 'Segoe UI', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
   display: flex;
   gap: calc(var(--space-base) * 16);
   flex-direction: column;
@@ -52,24 +68,35 @@ svg {
   border: 1px solid transparent;
   background: linear-gradient(
     to bottom,
-    lightgray 0%,
-    gray 4rem,
-    gray calc(100% - 1.5rem),
-    lightgray 100%
+    var(--light) 0%,
+    var(--dark) 6rem,
+    var(--dark) calc(100% - 2rem),
+    var(--light) 100%
   );
+  color: var(--font);
 }
 header {
   display: flex;
   min-width: 100%;
   align-items: center;
   justify-content: space-between;
-  justify-self: flex-start;
+}
+h1 {
+  font-size: calc(var(--space-base) * 8);
+  font-weight: bold;
 }
 .scores-container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: calc(var(--space-base) * 4);
+  & p {
+    font-family:
+      'pixel', 'averia', system-ui, 'Segoe UI', Helvetica, Arial, sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji';
+    font-size: calc(var(--space-base) * 6);
+    font-weight: bold;
+  }
 }
 .signature {
   font-size: 0.9rem;
@@ -81,6 +108,18 @@ header {
     width: calc(var(--space-base) * 4);
     height: auto;
   }
+}
+.logo-letters {
+  border: 1px solid var(--font);
+  font-family: Helvetica;
+  background-color: var(--dark);
+  display: inline-flex;
+  aspect-ratio: 1 / 1;
+  width: calc(var(--space-base) * 14);
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark), var(--light));
 }
 /* ======================================= */
 /* CARDS CONTAINER & CARDS ============== */
@@ -115,24 +154,24 @@ header {
   .cards-container {
     grid-template-columns: repeat(3, 1fr);
   }
+  header {
+    flex-direction: column;
+    gap: calc(var(--space-base) * 8);
+  }
+  #root {
+    background: linear-gradient(
+      to bottom,
+      var(--light) 0%,
+      var(--dark) 10rem,
+      var(--dark) calc(100% - 2rem),
+      var(--light) 100%
+    );
+  }
 }
 
 @media (max-width: 480px) {
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
-  }
-  header {
-    flex-direction: column;
-    gap: calc(var(--space-base) * 4);
-  }
-  #root {
-    background: linear-gradient(
-      to bottom,
-      lightgray 0%,
-      gray 6rem,
-      gray calc(100% - 1.5rem),
-      lightgray 100%
-    );
   }
 }
 
