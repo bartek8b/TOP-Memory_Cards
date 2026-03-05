@@ -4,8 +4,8 @@ function App() {
       <header>
         <h1><span className="logo-letters">Br</span> <span className="logo-letters">Ba</span> Memory Cards</h1>
         <div className="scores-container">
-          <p>Score: 0</p>
-          <p>Best: 0</p>
+          <p>Score: 10</p>
+          <p>Best: 12</p>
         </div>
       </header>
 
