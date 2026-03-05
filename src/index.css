@@ -96,6 +96,7 @@ header {
   width: calc(var(--space-base) * 36);
   height: auto;
   border-radius: calc(var(--space-base) * 2);
+  cursor: pointer;
 }
 /* ======================================= */
 /* HOVER ================================ */
