@@ -9,7 +9,20 @@ function App() {
         </div>
       </header>
 
-      <div className="cards-container"></div>
+      <div className="cards-container">
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+        <div className="card"></div>
+      </div>
 
       <a
         href="https://github.com/bartek8b"

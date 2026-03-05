@@ -27,12 +27,12 @@ svg {
   color: var(--font);
 }
 /* ======================================= */
-/* ROOT & BODY ========================== */
+/* ROOT & BODY & HEADER / FOOTER ======== */
 /* ===================================== */
 :root {
   --space-base: 4px;
 
-  --font:    
+  --font:           
 ;
 }
 #root {
@@ -42,6 +42,7 @@ svg {
     system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji';
   display: flex;
+  gap: calc(var(--space-base) * 8);
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -75,6 +76,21 @@ header {
   }
 }
 /* ======================================= */
+/* CARDS CONTAINER & CARDS ============== */
+/* ===================================== */
+.cards-container {
+  display: grid;
+  gap: calc(var(--space-base) * 4);
+  grid-template-columns: repeat(6, 1fr);
+}
+.card {
+  border: 1px solid black;
+  aspect-ratio: 2 / 3;
+  width: calc(var(--space-base) * 36);
+  height: auto;
+  border-radius: calc(var(--space-base) * 2);
+}
+/* ======================================= */
 /* HOVER ================================ */
 /* ===================================== */
 @media (hover: hover) {
@@ -83,16 +99,29 @@ header {
 /* RESPONSIVE-MEDIA-QUERIES ============= */
 /* ===================================== */
 @media (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (min-width: 1920px) {
+@media (max-width: 300px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
 }
+
 /* ====================================== */
 /* ANIMATIONS ========================== */
 /* ==================================== */
