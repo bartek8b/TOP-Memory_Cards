@@ -91,7 +91,6 @@ header {
   grid-template-columns: repeat(6, 1fr);
 }
 .card {
-  border: 1px solid black;
   aspect-ratio: 2 / 3;
   width: calc(var(--space-base) * 36);
   height: auto;
