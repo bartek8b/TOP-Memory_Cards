@@ -32,7 +32,7 @@ svg {
 :root {
   --space-base: 4px;
 
-  --font:           
+  --font:             
 ;
 }
 #root {
@@ -42,14 +42,21 @@ svg {
     system-ui, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji';
   display: flex;
-  gap: calc(var(--space-base) * 8);
+  gap: calc(var(--space-base) * 16);
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  background-color: gray;
   padding-inline: calc(var(--space-base) * 4);
+  padding-top: calc(var(--space-base) * 2);
   border: 1px solid transparent;
+  background: linear-gradient(
+    to bottom,
+    lightgray 0%,
+    gray 4rem,
+    gray calc(100% - 1.5rem),
+    lightgray 100%
+  );
 }
 header {
   display: flex;
@@ -113,6 +120,19 @@ header {
 @media (max-width: 480px) {
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+  header {
+    flex-direction: column;
+    gap: calc(var(--space-base) * 4);
+  }
+  #root {
+    background: linear-gradient(
+      to bottom,
+      lightgray 0%,
+      gray 6rem,
+      gray calc(100% - 1.5rem),
+      lightgray 100%
+    );
   }
 }
 
