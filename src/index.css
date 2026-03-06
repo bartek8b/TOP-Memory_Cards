@@ -127,13 +127,14 @@ h1 {
 /* ===================================== */
 .cards-container {
   display: grid;
-  gap: calc(var(--space-base) * 4);
-  grid-template-columns: repeat(6, 1fr);
+  gap: calc(var(--space-base) * 8);
+  grid-template-columns: repeat(4, 1fr);
 }
 .card {
   aspect-ratio: 2 / 3;
   width: calc(var(--space-base) * 36);
   height: auto;
+  border: 1px solid var(--light);
   border-radius: calc(var(--space-base) * 2);
   cursor: pointer;
 }
@@ -145,15 +146,9 @@ h1 {
 /* ======================================= */
 /* RESPONSIVE-MEDIA-QUERIES ============= */
 /* ===================================== */
-@media (max-width: 1024px) {
-  .cards-container {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
   .cards-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   header {
     flex-direction: column;
@@ -170,15 +165,15 @@ h1 {
   }
 }
 
-@media (max-width: 480px) {
-  .cards-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 300px) {
   .cards-container {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1920px) {
+  .cards-container {
+    grid-template-columns: repeat(8, 1fr);
   }
 }
 

@@ -1,8 +1,25 @@
+import { fetchCharacters } from './data';
+import { useEffect, useState } from 'react';
+
 function App() {
+  const [characters, setCharacters] = useState([]);
+
+  useEffect(() => {
+    fetchCharacters()
+      .then((data) => {
+        console.log(data);
+        setCharacters(data.slice(0, 8));
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <>
       <header>
-        <h1><span className="logo-letters">Br</span> <span className="logo-letters">Ba</span> Memory Cards</h1>
+        <h1>
+          <span className="logo-letters">Br</span>{' '}
+          <span className="logo-letters">Ba</span> Memory Cards
+        </h1>
         <div className="scores-container">
           <p>Score: 10</p>
           <p>Best: 12</p>
@@ -10,18 +27,14 @@ function App() {
       </header>
 
       <div className="cards-container">
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
-        <img src="" alt="" className="card" />
+        <figure className="card"></figure>
+        <figure className="card"></figure>
+        <figure className="card"></figure>
+        <figure className="card"></figure>
+        <figure className="card"></figure>
+        <figure className="card"></figure>
+        <figure className="card"></figure>
+        <figure className="card"></figure>
       </div>
 
       <a
