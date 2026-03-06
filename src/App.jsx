@@ -13,6 +13,8 @@ function App() {
   const [commentary, setCommentary] = useState(
     "Don't click on the same character twice to get point!",
   );
+  const [isAnimating, setIsAnimating] = useState(true);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   // Render pictures & names from db
   useEffect(() => {
@@ -25,33 +27,49 @@ function App() {
   }, []);
 
   function handleClick(id) {
+    setIsAnimating(false);
+    if (isGameOver) {
+      setIsGameOver(false);
+      setClicked([id]);
+      setCommentary('New game started! Score++');
+      setTimeout(() => setIsAnimating(true), 10);
+      return;
+    }
     if (clicked.includes(id)) {
-      setClicked([]);
-      setCommentary(['Try again!']);
+      setIsGameOver(true);
+      setCommentary('You clicked twice on the same character! Try again!');
     } else {
       const newClicked = [...clicked, id];
       setClicked(newClicked);
-      setCommentary(['Nice! Score++']);
+      setCommentary('Nice! Score++');
       if (newClicked.length > best) {
         setBest(newClicked.length);
-        setCommentary(['Very good! You set new record!']);
-      } else if (newClicked.length === 8) {
-        setCommentary(['Game over! You were flawless!']);
+        setCommentary('Very good! You set new record!');
+      }
+      if (newClicked.length === 8) {
+        setCommentary(
+          'Game over! You were flawless! Will you repeat this achievement?',
+        );
+        setIsGameOver(true);
       }
     }
+    setTimeout(() => setIsAnimating(true), 10);
   }
 
   return (
     <>
       <Header score={clicked.length} best={best} />
 
-      <Commentary message={commentary} />
+      <Commentary
+        message={commentary}
+        className={isAnimating ? 'animate' : ''}
+      />
 
       <CardsContainer>
         {characters.map((ch) => (
           <Card
             key={ch.id}
-            className="card"
+            className={`card ${isAnimating ? 'animate' : ''}`}
             id={ch.id}
             src={`https://image.tmdb.org/t/p/w400/${ch.profile_path}`}
             name={ch.character}

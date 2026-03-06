@@ -1,3 +1,3 @@
-export function Commentary({ message }) {
-  return <p className="commentary">{message}</p>;
+export function Commentary({ message, className }) {
+  return <p className={`commentary ${className}`}>{message}</p>;
 }
