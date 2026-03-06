@@ -8,6 +8,7 @@ import { shuffleArray } from './utils';
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   // length of clicked also serves as score
   const [clicked, setClicked] = useState([]);
   const [best, setBest] = useState(0);
@@ -21,10 +22,14 @@ function App() {
   useEffect(() => {
     fetchCharacters()
       .then((data) => {
-        console.log(data);
         setCharacters(data.slice(0, 8));
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   function handleClick(id) {
@@ -72,17 +77,20 @@ function App() {
       />
 
       <CardsContainer>
-        {characters.map((ch) => (
-          <Card
-            key={ch.id}
-            className={`card ${isAnimating ? 'animate' : ''}`}
-            id={ch.id}
-            src={`https://image.tmdb.org/t/p/w400/${ch.profile_path}`}
-            name={ch.character}
-            // Without arrow function would fire immidiately at render and causes infinite loop of renders > app crashes
-            onClick={() => handleClick(ch.id)}
-          />
-        ))}
+        {isLoading ? (
+          <div className="loader">Loading...</div>
+        ) : (
+          characters.map((ch) => (
+            <Card
+              key={ch.id}
+              className={`card ${isAnimating ? 'animate' : ''}`}
+              id={ch.id}
+              src={`https://image.tmdb.org/t/p/w400/${ch.profile_path}`}
+              name={ch.character}
+              onClick={() => handleClick(ch.id)}
+            />
+          ))
+        )}
       </CardsContainer>
 
       <Footer />

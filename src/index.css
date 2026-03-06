@@ -203,7 +203,7 @@ h1 {
 }
 
 /* ====================================== */
-/* ANIMATIONS ========================== */
+/* ANIMATIONS & LOADER ================= */
 /* ==================================== */
 .commentary.animate {
   animation: slide-in 0.9s ease;
@@ -211,6 +211,16 @@ h1 {
 .card.animate {
   animation: flip 0.9s ease;
 }
+.loader {
+  grid-column: 1 / -1; /* Zajmuje całą szerokość grida kart */
+  text-align: center;
+  font-family: 'pixel', sans-serif;
+  font-size: 2rem;
+  color: var(--light);
+  padding: 5rem;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
 @keyframes slide-in {
   from {
     opacity: 0.5;
@@ -227,5 +237,14 @@ h1 {
   }
   to {
     transform: perspective(1000px) rotateY(0deg);
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
   }
 }
