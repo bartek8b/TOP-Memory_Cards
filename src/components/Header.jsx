@@ -1,4 +1,4 @@
-export function Header({ score = 0, best = 0 }) {
+export function Header({ score, best }) {
   return (
     <header>
       <h1>
