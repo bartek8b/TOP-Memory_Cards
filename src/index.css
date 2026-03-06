@@ -129,14 +129,35 @@ h1 {
   aspect-ratio: 2 / 3;
   width: calc(var(--space-base) * 40);
   height: auto;
-  border: 1px solid var(--light);
-  border-radius: calc(var(--space-base) * 2);
+  position: relative;
   cursor: pointer;
+  border-radius: calc(var(--space-base) * 1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  & img {
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    cursor: inherit;
+    border-radius: inherit;
+  }
+  & figcaption {
+    cursor: inherit;
+    text-align: center;
+    background-color: var(--light);
+    border-radius: inherit;
+    padding-block: calc(var(--space-base) / 2);
+  }
+}
+.card:active {
+  transform: scale(0.98);
 }
 /* ======================================= */
 /* HOVER ================================ */
 /* ===================================== */
 @media (hover: hover) {
+  .card:hover {
+    opacity: 0.85;
+  }
 }
 /* ======================================= */
 /* RESPONSIVE-MEDIA-QUERIES ============= */

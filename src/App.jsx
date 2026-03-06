@@ -16,20 +16,25 @@ function App() {
       .catch((err) => console.error(err));
   }, []);
 
+  function handleClick() {
+    // to be filled
+  }
+
   return (
     <>
       <Header />
 
-      <div className="cards-container">
-        <figure className="card"></figure>
-        <figure className="card"></figure>
-        <figure className="card"></figure>
-        <figure className="card"></figure>
-        <figure className="card"></figure>
-        <figure className="card"></figure>
-        <figure className="card"></figure>
-        <figure className="card"></figure>
-      </div>
+      <CardsContainer>
+        {characters.map((ch) => (
+          <Card
+            className="card"
+            id={ch.id}
+            src={`https://image.tmdb.org/t/p/w400/${ch.profile_path}`}
+            name={ch.character}
+            onClick={handleClick}
+          />
+        ))}
+      </CardsContainer>
 
       <Footer />
     </>
