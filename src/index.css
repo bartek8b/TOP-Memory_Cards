@@ -127,7 +127,7 @@ h1 {
 }
 .card {
   aspect-ratio: 2 / 3;
-  width: calc(var(--space-base) * 36);
+  width: calc(var(--space-base) * 40);
   height: auto;
   border: 1px solid var(--light);
   border-radius: calc(var(--space-base) * 2);
@@ -160,7 +160,7 @@ h1 {
   }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 360px) {
   .cards-container {
     grid-template-columns: 1fr;
   }
