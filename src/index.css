@@ -15,12 +15,7 @@ html {
 * {
   margin: 0;
   padding: 0;
-}
-h1::selection,
-p::selection,
-a::selection {
-  background-color: var(--dark);
-  color: var(--light);
+  cursor: default;
 }
 *::selection {
   background-color: transparent;
