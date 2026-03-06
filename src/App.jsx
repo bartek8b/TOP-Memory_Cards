@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Commentary } from './components/Commentary';
 import { CardsContainer, Card } from './components/Cards';
+import { shuffleArray } from './utils';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -28,6 +29,10 @@ function App() {
 
   function handleClick(id) {
     setIsAnimating(false);
+
+    const shuffled = shuffleArray(characters);
+    setCharacters(shuffled);
+
     if (isGameOver) {
       setIsGameOver(false);
       setClicked([id]);
@@ -53,6 +58,7 @@ function App() {
         setIsGameOver(true);
       }
     }
+
     setTimeout(() => setIsAnimating(true), 10);
   }
 
