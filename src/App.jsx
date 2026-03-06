@@ -2,6 +2,7 @@ import { fetchCharacters } from './data';
 import { useEffect, useState } from 'react';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
+import { Commentary } from './components/Commentary';
 import { CardsContainer, Card } from './components/Cards';
 
 function App() {
@@ -9,6 +10,9 @@ function App() {
   // length of clicked also serves as score
   const [clicked, setClicked] = useState([]);
   const [best, setBest] = useState(0);
+  const [commentary, setCommentary] = useState(
+    "Don't click on the same character twice to get point!",
+  );
 
   // Render pictures & names from db
   useEffect(() => {
@@ -23,11 +27,16 @@ function App() {
   function handleClick(id) {
     if (clicked.includes(id)) {
       setClicked([]);
+      setCommentary(['Try again!']);
     } else {
       const newClicked = [...clicked, id];
       setClicked(newClicked);
+      setCommentary(['Nice! Score++']);
       if (newClicked.length > best) {
         setBest(newClicked.length);
+        setCommentary(['Very good! You set new record!']);
+      } else if (newClicked.length === 8) {
+        setCommentary(['Game over! You were flawless!']);
       }
     }
   }
@@ -35,6 +44,8 @@ function App() {
   return (
     <>
       <Header score={clicked.length} best={best} />
+
+      <Commentary message={commentary} />
 
       <CardsContainer>
         {characters.map((ch) => (

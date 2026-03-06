@@ -117,6 +117,14 @@ h1 {
   justify-content: center;
   background: linear-gradient(135deg, var(--dark), var(--light));
 }
+.commentary {
+  text-align: center;
+  font-family:
+    'pixel', 'averia', system-ui, 'Segoe UI', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+  max-width: calc(var(--space-base) * 160);
+  animation: slide-in 0.6s ease forwards;
+}
 /* ======================================= */
 /* CARDS CONTAINER & CARDS ============== */
 /* ===================================== */
@@ -132,7 +140,10 @@ h1 {
   position: relative;
   cursor: pointer;
   border-radius: calc(var(--space-base) * 1);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: slide-in 0.6s ease forwards;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   & img {
     width: 100%;
     height: inherit;
@@ -197,8 +208,13 @@ h1 {
 /* ANIMATIONS ========================== */
 /* ==================================== */
 
-@keyframes menu-slide-in {
-}
-
-@keyframes menu-slide-out {
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: scale(80%);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
